@@ -137,8 +137,8 @@
      Kept compatible with the existing modal layers (1000 / 2000). */
   --z-content:     1;
   --z-sticky:     50;
-  --z-sidebar:    80;
-  --z-overlay:    90;
+  --z-overlay:    80;   /* drawer scrim: above topbar+content... */
+  --z-sidebar:    90;   /* ...and below the drawer it dims       */
   --z-dropdown: 1000;
   --z-modal:    2000;
 }
