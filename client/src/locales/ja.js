@@ -6,8 +6,16 @@ export default {
     orders: '注文',
     finance: '財務',
     demandForecast: '需要予測',
+    reports: 'レポート',
+    backlog: '受注残',
     companyName: '触媒コンポーネンツ',
-    subtitle: '在庫管理システム'
+    subtitle: '在庫管理システム',
+    openMenu: 'ナビゲーションメニューを開く',
+    closeMenu: 'ナビゲーションメニューを閉じる',
+    skipToContent: 'コンテンツへスキップ',
+    primary: 'メインナビゲーション',
+    expand: 'サイドバーを開く',
+    collapse: 'サイドバーを閉じる'
   },
 
   // Dashboard
@@ -195,7 +203,8 @@ export default {
     category: 'カテゴリ',
     orderStatus: '注文ステータス',
     all: 'すべて',
-    allMonths: 'すべての月'
+    allMonths: 'すべての月',
+    reset: 'すべてのフィルターをリセット'
   },
 
   // Statuses
