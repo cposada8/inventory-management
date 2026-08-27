@@ -1,0 +1,155 @@
+/* ==============================================================
+   Design tokens — the single source of truth for the UI layer.
+
+   Calibrated to the palette ALREADY in use across client/src.
+   Counts below are real occurrences measured before the sweep,
+   so nothing here silently rebrands the app.
+
+   Imported once, first, in main.js.
+   ============================================================== */
+
+:root {
+  /* ---- Spacing — 4px base scale --------------------------------
+     Use ONLY these for padding, margin, and gap.                 */
+  --space-1:  0.25rem;   /*  4px */
+  --space-2:  0.5rem;    /*  8px */
+  --space-3:  0.75rem;   /* 12px */
+  --space-4:  1rem;      /* 16px */
+  --space-5:  1.25rem;   /* 20px */
+  --space-6:  1.5rem;    /* 24px */
+  --space-8:  2rem;      /* 32px */
+  --space-10: 2.5rem;    /* 40px */
+  --space-12: 3rem;      /* 48px */
+  --space-16: 4rem;      /* 64px */
+
+  /* ---- Surfaces & ink ------------------------------------------ */
+  --surface:          #ffffff;
+  --surface-sunken:   #f8fafc;   /* 19 uses — app bg, table headers */
+  --surface-hover:    #f1f5f9;   /* 20 uses — row / nav hover       */
+  --surface-active:   #eff6ff;   /*  7 uses — selected nav fill     */
+
+  --ink:              #0f172a;   /* 51 uses — headings, stat values */
+  --ink-body:         #334155;   /*  9 uses — table cells           */
+  --ink-muted:        #64748b;   /* 59 uses — labels, captions      */
+  --ink-subtle:       #94a3b8;   /* 10 uses — placeholders, icons   */
+  --ink-inverse:      #ffffff;
+
+  --border:           #e2e8f0;   /* 58 uses — default hairline      */
+  --border-strong:    #cbd5e1;   /* 13 uses — inputs, hover borders */
+
+  /* ---- Brand ----------------------------------------------------
+     Two blues are genuinely in use: 2563eb for solid/brand chrome,
+     3b82f6 for focus rings, gradients and chart fills.            */
+  --brand:            #2563eb;   /* 21 uses */
+  --brand-light:      #3b82f6;   /* 22 uses */
+  --brand-hover:      #1d4ed8;
+  --brand-soft:       #eff6ff;
+  --brand-ink:        #1e40af;   /*  8 uses */
+
+  /* ---- Status ---------------------------------------------------
+     `-bright` is the saturated 500-weight used in charts and inline
+     value colouring; the plain token is the darker text-safe one.  */
+  --success:        #059669;  --success-bright: #10b981;
+  --success-soft:   #d1fae5;  --success-ink:    #065f46;
+
+  --warning:        #ea580c;  --warning-bright: #f59e0b;
+  --warning-soft:   #fed7aa;  --warning-ink:    #92400e;
+
+  --danger:         #dc2626;  --danger-bright:  #ef4444;
+  --danger-soft:    #fecaca;  --danger-ink:     #991b1b;
+  --danger-bg:      #fef2f2;
+
+  --info:           #2563eb;  --info-bright:    #3b82f6;
+  --info-soft:      #dbeafe;  --info-ink:       #1e40af;
+
+  --neutral:        #475569;  --neutral-soft:   #e2e8f0;
+  --neutral-ink:    #334155;
+
+  /* ---- Chart palette --------------------------------------------
+     The six data colours actually used today. Charts must draw from
+     here and introduce nothing new.                               */
+  --chart-1: #10b981;   /* delivered / positive  */
+  --chart-2: #3b82f6;   /* shipped / primary     */
+  --chart-3: #f59e0b;   /* processing / caution  */
+  --chart-4: #ef4444;   /* backordered / negative*/
+  --chart-5: #64748b;   /* neutral series        */
+  --chart-6: #8b5cf6;   /* spare categorical     */
+  --chart-track: #e2e8f0;  /* unfilled arc / gridline */
+
+  /* ---- Decorative ----------------------------------------------- */
+  --avatar-from: #667eea;
+  --avatar-to:   #764ba2;
+
+  /* ---- Typography ----------------------------------------------- */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+               Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --text-xs:   0.75rem;
+  --text-sm:   0.8125rem;
+  --text-base: 0.875rem;
+  --text-md:   0.9375rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.5rem;
+  --text-2xl:  2rem;
+
+  --weight-normal: 400;
+  --weight-medium: 500;
+  --weight-semi:   600;
+  --weight-bold:   700;
+
+  --leading-tight:  1.25;
+  --leading-normal: 1.5;
+  --tracking-tight: -0.025em;
+  --tracking-wide:   0.05em;
+
+  /* ---- Radii ----------------------------------------------------- */
+  --radius-sm:   4px;
+  --radius:      6px;    /* buttons, inputs, badges, nav items */
+  --radius-lg:  10px;    /* cards, panels                      */
+  --radius-full: 999px;
+
+  /* ---- Elevation -------------------------------------------------
+     Borders do the separation work; shadow is for floating things. */
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow:    0 1px 3px rgba(15, 23, 42, 0.08);
+  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.14);
+
+  /* ---- Focus ring — one ring, used everywhere -------------------- */
+  --ring: 0 0 0 3px rgba(59, 130, 246, 0.30);
+
+  /* ---- Motion ---------------------------------------------------- */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 120ms;
+  --duration:      180ms;
+  --duration-slow: 240ms;
+
+  /* ---- Layout ----------------------------------------------------
+     The shell derives from these; change here and everything follows. */
+  --sidebar-w:           248px;
+  --sidebar-w-collapsed:  68px;
+  --topbar-h:             64px;
+  --content-max:        1600px;   /* preserves the existing cap */
+  --gutter:      var(--space-8);
+
+  /* ---- Z-index — declare the stack, don't invent numbers ---------
+     Kept compatible with the existing modal layers (1000 / 2000). */
+  --z-content:     1;
+  --z-sticky:     50;
+  --z-sidebar:    80;
+  --z-overlay:    90;
+  --z-dropdown: 1000;
+  --z-modal:    2000;
+}
+
+@media (max-width: 1280px) { :root { --gutter: var(--space-6); } }
+@media (max-width: 640px)  { :root { --gutter: var(--space-4); } }
+
+/* Respect users who ask for less motion. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
