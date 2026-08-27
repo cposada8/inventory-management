@@ -1,0 +1,130 @@
+/* ==============================================================
+   Design tokens — the single source of truth for the UI layer.
+
+   Load ONCE, globally, before any component styles:
+     client/src/styles/tokens.css   +   import in main.js
+
+   Every value below replaces a hardcoded literal somewhere in the
+   app. After the sweep, a scoped block should contain almost no
+   raw hex codes and no raw pixel spacing.
+   ============================================================== */
+
+:root {
+  /* ---- Spacing — 4px base scale --------------------------------
+     Use ONLY these for padding, margin, and gap. If a value you
+     want isn't here, you want a different value.                 */
+  --space-1:  0.25rem;   /*  4px */
+  --space-2:  0.5rem;    /*  8px */
+  --space-3:  0.75rem;   /* 12px */
+  --space-4:  1rem;      /* 16px */
+  --space-5:  1.25rem;   /* 20px */
+  --space-6:  1.5rem;    /* 24px */
+  --space-8:  2rem;      /* 32px */
+  --space-10: 2.5rem;    /* 40px */
+  --space-12: 3rem;      /* 48px */
+  --space-16: 4rem;      /* 64px */
+
+  /* ---- Surfaces & ink ------------------------------------------
+     Semantic names, not colour names. `--surface-sunken` survives
+     a palette change; `--slate-50` does not.                      */
+  --surface:          #ffffff;   /* cards, sidebar, modals        */
+  --surface-sunken:   #f8fafc;   /* app background, table headers */
+  --surface-hover:    #f1f5f9;   /* row / nav item hover          */
+  --surface-active:   #eff6ff;   /* selected nav item fill        */
+
+  --ink:              #0f172a;   /* headings, primary values      */
+  --ink-body:         #334155;   /* body copy, table cells        */
+  --ink-muted:        #64748b;   /* labels, captions, meta        */
+  --ink-subtle:       #94a3b8;   /* placeholders, disabled        */
+  --ink-inverse:      #ffffff;
+
+  --border:           #e2e8f0;   /* default hairline              */
+  --border-strong:    #cbd5e1;   /* inputs, hover borders         */
+
+  /* ---- Brand / accent ------------------------------------------ */
+  --brand:            #2563eb;
+  --brand-hover:      #1d4ed8;
+  --brand-soft:       #eff6ff;   /* tinted background             */
+  --brand-ink:        #1e40af;   /* text on --brand-soft          */
+
+  /* ---- Status --------------------------------------------------
+     Each status has a solid (text/icon) and a soft (background)
+     so badges and stat values stay consistent.                    */
+  --success:      #059669;  --success-soft: #d1fae5;  --success-ink: #065f46;
+  --warning:      #ea580c;  --warning-soft: #fed7aa;  --warning-ink: #92400e;
+  --danger:       #dc2626;  --danger-soft:  #fecaca;  --danger-ink:  #991b1b;
+  --info:         #2563eb;  --info-soft:    #dbeafe;  --info-ink:    #1e40af;
+  --neutral:      #475569;  --neutral-soft: #e2e8f0;  --neutral-ink: #334155;
+
+  /* ---- Typography ---------------------------------------------- */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+               Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --text-xs:   0.75rem;    /* 12 — table headers, badges, meta    */
+  --text-sm:   0.8125rem;  /* 13 — dense controls, filter labels  */
+  --text-base: 0.875rem;   /* 14 — table cells, body default      */
+  --text-md:   0.9375rem;  /* 15 — nav items, prose               */
+  --text-lg:   1.125rem;   /* 18 — card titles                    */
+  --text-xl:   1.5rem;     /* 24 — page titles                    */
+  --text-2xl:  2rem;       /* 32 — stat values                    */
+
+  --weight-normal: 400;
+  --weight-medium: 500;
+  --weight-semi:   600;
+  --weight-bold:   700;
+
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --tracking-tight: -0.02em;   /* headings and large numerals */
+  --tracking-wide:  0.05em;    /* uppercase micro-labels      */
+
+  /* ---- Radii ---------------------------------------------------- */
+  --radius-sm: 4px;
+  --radius:    6px;    /* buttons, inputs, badges, nav items */
+  --radius-lg: 10px;   /* cards, panels                      */
+  --radius-full: 999px;
+
+  /* ---- Elevation ------------------------------------------------
+     Keep it restrained. Borders do most of the separation work;
+     shadow is reserved for things that genuinely float.           */
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow:    0 1px 3px rgba(15, 23, 42, 0.08);
+  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.14);
+
+  /* ---- Focus ring — one ring, used everywhere ------------------- */
+  --ring: 0 0 0 3px rgba(37, 99, 235, 0.30);
+
+  /* ---- Motion --------------------------------------------------- */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 120ms;
+  --duration:      180ms;
+  --duration-slow: 240ms;
+
+  /* ---- Layout ---------------------------------------------------
+     The sidebar width is a token because the main column, the
+     sticky filter bar, and the responsive breakpoints all derive
+     from it. Change it here and the whole shell follows.          */
+  --sidebar-w:           248px;
+  --sidebar-w-collapsed:  68px;
+  --topbar-h:             64px;
+  --content-max:        1440px;  /* readable cap for wide screens */
+  --gutter:      var(--space-8); /* page left/right padding       */
+
+  /* ---- Z-index — declare the stack, don't invent numbers -------- */
+  --z-content:  1;
+  --z-sticky:  50;   /* filter bar, table headers */
+  --z-sidebar: 80;
+  --z-overlay: 90;   /* mobile drawer scrim       */
+  --z-modal:  100;
+  --z-toast:  110;
+}
+
+/* Respect users who ask for less motion. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
